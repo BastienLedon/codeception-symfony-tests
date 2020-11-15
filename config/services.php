@@ -9,6 +9,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $config): void
 {
     $config->parameters()
+        ->set('locale', 'es')
         ->set('app.business_shortname', '%env(BUSINESS_SHORTNAME)%')
         ->set('app.business_fullname', '%env(BUSINESS_FULLNAME)%');
 

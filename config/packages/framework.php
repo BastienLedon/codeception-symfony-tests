@@ -40,4 +40,20 @@ return static function (ContainerConfigurator $config): void
             'utf8' => true
         ]
     ]);
+
+    // Translation
+    $config->extension('framework', [
+        'default_locale' => '%locale%',
+        'translator' => [
+            'default_path' => '%kernel.project_dir%/resources/lang',
+            'fallbacks' => ['%locale%']
+        ]
+    ]);
+
+    // Validator
+    $config->extension('framework', [
+        'validation' => [
+            'email_validation_mode' => 'html5'
+        ]
+    ]);
 };

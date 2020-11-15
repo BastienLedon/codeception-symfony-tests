@@ -14,6 +14,13 @@ return static function (ContainerConfigurator $config): void
         ]
     ]);
 
+    // Validator
+    $config->extension('framework', [
+        'validation' => [
+            'not_compromised_password' => false
+        ]
+    ]);
+
     // Web Profiler
     $config->extension('framework', [
         'profiler' => ['collect' => false]
