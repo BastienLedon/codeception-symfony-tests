@@ -6,6 +6,7 @@ modules:
         - Symfony:
             app_path: 'src'
             environment: 'test'
+            mailer: 'symfony_mailer'
         - REST:
             url: /api
             depends: Symfony
