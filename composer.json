@@ -7,7 +7,6 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "api-platform/core": "^2.5",
         "doctrine/doctrine-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/apache-pack": "^1.0",
@@ -62,7 +61,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [ "tests/_build/support" ],
+        "classmap": [
+            "tests/_build/support"
+        ],
         "psr-4": {
             "App\\Tests\\": "tests/"
         }
