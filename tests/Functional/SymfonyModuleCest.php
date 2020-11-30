@@ -148,6 +148,10 @@ final class SymfonyModuleCest
 
     public function seeEmailIsSent(FunctionalTester $I)
     {
+        $user = $I->grabEntityFromRepository(User::class, [
+            'email' => 'john_doe1@gmail.com'
+        ]);
+        $I->amLoggedInAs($user);
         $I->amOnPage('/register');
         $I->stopFollowingRedirects();
         $I->submitSymfonyForm('registration_form', [
@@ -239,6 +243,10 @@ final class SymfonyModuleCest
 
     public function submitSymfonyForm(FunctionalTester $I)
     {
+        $user = $I->grabEntityFromRepository(User::class, [
+            'email' => 'john_doe1@gmail.com'
+        ]);
+        $I->amLoggedInAs($user);
         $I->amOnPage('/register');
         $I->submitSymfonyForm('registration_form', [
             '[email]' => 'jane_doe@gmail.com',
