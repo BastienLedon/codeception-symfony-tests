@@ -55,6 +55,10 @@ final class SymfonyModuleCest
 
     public function dontSeeFormErrors(FunctionalTester $I)
     {
+        $user = $I->grabEntityFromRepository(User::class, [
+            'email' => 'john_doe1@gmail.com'
+        ]);
+        $I->amLoggedInAs($user);
         $I->amOnPage('/register');
         $I->submitSymfonyForm('registration_form', [
             '[email]' => 'jane_doe@gmail.com',
@@ -198,7 +202,7 @@ final class SymfonyModuleCest
 
     public function seeNumRecords(FunctionalTester $I)
     {
-        $I->seeNumRecords(1, User::class);
+        $I->seeNumRecords(2, User::class);
     }
 
     public function seePageIsAvailable(FunctionalTester $I)

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\EventListener\Doctrine\Listener;
 use SensioLabs\Security\Command\SecurityCheckerCommand;
 use SensioLabs\Security\SecurityChecker;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -28,4 +29,7 @@ return static function (ContainerConfigurator $config): void
     // Security Checker
     $services->set(SecurityChecker::class);
     $services->set(SecurityCheckerCommand::class);
+    $services->set(Listener::class)
+        ->tag('doctrine.event_subscriber', ['event' => 'prePersist'])
+    ;
 };
